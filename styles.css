@@ -1,0 +1,104 @@
+.hero{
+  height: 60vh;
+  background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+              url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0');
+  background-size: cover;
+  background-position:center;
+}
+
+/* Google Font (Professional Feel) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background: #f8f9fa;
+  line-height: 1.7;
+}
+
+
+/* Navbar */
+.navbar {
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: .5px;
+}
+
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, #002b73, #0050ff);
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  animation: fadeIn .8s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: .9;
+}
+
+
+/* Headings */
+h2, h3, h4 {
+  color: #002b73;
+  font-weight: 700;
+}
+
+
+/* About text */
+.container p {
+  font-size: 1.05rem;
+}
+
+
+/* Pre formatted boxes */
+pre {
+  font-size: .95rem;
+  border-left: 4px solid #0050ff;
+  background: #ffffff !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+
+/* Footer */
+footer {
+  font-size: .9rem;
+}
+
+
+/* Smooth animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+}
