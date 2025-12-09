@@ -1016,64 +1016,6 @@
         .close-modal:hover {
             color: var(--secondary);
         }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: serviceCardFloat 6s ease-in-out infinite;
-        }
-
-        .service-card:nth-child(2) { animation-delay: 1s; }
-        .service-card:nth-child(3) { animation-delay: 2s; }
-        .service-card:nth-child(4) { animation-delay: 3s; }
-        .service-card:nth-child(5) { animation-delay: 4s; }
-        .service-card:nth-child(6) { animation-delay: 5s; }
-
-        @keyframes serviceCardFloat {
-            0%, 100% { transform: translateY(0) rotateY(0); }
-            50% { transform: translateY(-10px) rotateY(5deg); }
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px) rotateX(5deg);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .service-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .service-desc {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
     </style>
 </head>
 <body>
@@ -1344,6 +1286,112 @@
         </div>
     </footer>
 
+    <!-- ========== ADDED MISSING MODALS ========== -->
+    
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeLoginModal">&times;</button>
+            <h2 style="margin-bottom: 1.5rem; color: white;">Login to LaaniPay</h2>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white;">
+            </div>
+            <button class="btn btn-primary" style="width: 100%; padding: 14px;">Login to Dashboard</button>
+            <p style="text-align: center; margin-top: 1.5rem; color: rgba(255, 255, 255, 0.7);">
+                New to LaaniPay? <a href="#" style="color: var(--secondary); font-weight: 600;" id="signupFromLogin">Create Account</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeSignupModal">&times;</button>
+            <h2 style="margin-bottom: 1.5rem; color: white;">Join LaaniPay</h2>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <input type="text" class="form-control" id="signupName" placeholder="Full Name" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <input type="email" class="form-control" id="signupEmail" placeholder="Email Address" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+                <input type="password" class="form-control" id="signupPassword" placeholder="Create Password" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.1); color: white;">
+            </div>
+            <button class="btn btn-primary" style="width: 100%; padding: 14px;">Create Free Account</button>
+            <p style="text-align: center; margin-top: 1.5rem; color: rgba(255, 255, 255, 0.7);">
+                Already have an account? <a href="#" style="color: var(--secondary); font-weight: 600;" id="loginFromSignup">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Services Modal -->
+    <div class="modal" id="servicesModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeServicesModal">&times;</button>
+            <h2 style="margin-bottom: 1.5rem; color: white; text-align: center;">LaaniPay Services</h2>
+            <p style="text-align: center; color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem;">
+                Discover our comprehensive range of utilities banking services designed to simplify your financial life
+            </p>
+            
+            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Utilities Payment</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Pay electricity, water, gas, and internet bills instantly from one platform.</p>
+                </div>
+                
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Virtual Cards</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Generate secure virtual cards for online shopping and subscriptions.</p>
+                </div>
+                
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Airtime & Data</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Recharge airtime and buy data bundles for all major networks instantly.</p>
+                </div>
+                
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Fund Management</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Deposit, withdraw, and manage your funds with real-time tracking.</p>
+                </div>
+                
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Secure Payments</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Bank-level security with Stripe integration for all transactions.</p>
+                </div>
+                
+                <div class="service-card" style="background: rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; transform-style: preserve-3d; border: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div class="service-icon" style="font-size: 3rem; margin-bottom: 1rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title" style="font-size: 1.3rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Spending Analytics</h3>
+                    <p class="service-desc" style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.5;">Track and analyze your utility spending patterns with detailed reports.</p>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; margin-top: 2rem; padding: 16px;">
+                <i class="fas fa-rocket"></i> Get Started with All Services
+            </button>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script>
         // DOM Elements
@@ -1490,7 +1538,7 @@
             this.style.transform = 'rotateY(-10deg)';
         });
 
-        // Modal Functions
+        // Modal Functions - NOW THEY WILL WORK!
         loginBtn.addEventListener('click', () => {
             loginModal.style.display = 'flex';
         });
@@ -1525,6 +1573,11 @@
             e.preventDefault();
             signupModal.style.display = 'none';
             loginModal.style.display = 'flex';
+        });
+
+        // About Button functionality
+        aboutBtn.addEventListener('click', () => {
+            alert('About LaaniPay:\n\nLaaniPay is a next-generation utilities banking platform founded in 2020. We combine cutting-edge financial technology with user-friendly design to revolutionize how people manage and pay for utilities. Our platform is trusted by over 500,000 users worldwide.');
         });
 
         // Close modals when clicking outside
@@ -1562,10 +1615,6 @@
 
         payUtilitiesBtn.addEventListener('click', () => {
             alert('Opening Utilities Payment Portal...\n\nYou can now pay your electricity, water, internet, and other utility bills securely.');
-        });
-
-        aboutBtn.addEventListener('click', () => {
-            alert('About LaaniPay:\n\nLaaniPay is a next-generation utilities banking platform founded in 2020. We combine cutting-edge financial technology with user-friendly design to revolutionize how people manage and pay for utilities. Our platform is trusted by over 500,000 users worldwide.');
         });
 
         // Animated button effects
